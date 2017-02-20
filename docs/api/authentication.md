@@ -210,7 +210,7 @@ Reauthenticate the current user with credentials:
 
 ```javascript
 const credentials = {
-  provider: 'facebook.com', 
+  provider: 'facebook', 
   token: '12345', 
   secret: '6789', 
 };
