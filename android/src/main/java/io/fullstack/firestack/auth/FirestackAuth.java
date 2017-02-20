@@ -25,12 +25,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.EmailAuthProvider;
-
 
 import io.fullstack.firestack.Utils;
 
@@ -576,7 +574,6 @@ public class FirestackAuth extends ReactContextBaseJavaModule {
 
   private void userErrorCallback(Task task, final Callback onFail) {
     WritableMap error = Arguments.createMap();
-    error.putString("code", ((FirebaseAuthException) task.getException()).getErrorCode());
     error.putString("message", task.getException().getMessage());
     onFail.invoke(error);
   }
